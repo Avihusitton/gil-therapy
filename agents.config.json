@@ -145,14 +145,16 @@
 
   "global_policies": {
     "git_policy": {
-      "status": "PERMANENTLY_LOCKED",
-      "forbidden_commands": [
-        "git init", "git status", "git add", "git commit",
-        "git push", "git pull", "git checkout", "git branch",
-        "git merge", "git rebase", "git clone", "git fetch",
-        "git log", "git diff", "git reset", "git stash"
+      "status": "RESTRICTED",
+      "rules": [
+        "כל שינוי אוטומטי מועלה אך ורק ל-Branch שנקרא stage",
+        "העלאה ל-main (Production) דורשת אישור מפורש מהמשתמש (USER)",
+        "אסור לבצע push אוטומטי ל-main ללא אישור"
       ],
-      "note": "Git יוגדר בעתיד בלבד ורק בהוראה מפורשת מהמשתמש."
+      "forbidden_commands": [
+        "git push origin main"
+      ],
+      "note": "אכיפת עבודה בסביבת stage תחילה, כדי למנוע דחיפה בטעות ל-main"
     },
     "working_mode": {
       "type": "local_only",
