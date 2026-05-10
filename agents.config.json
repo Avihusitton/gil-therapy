@@ -1,0 +1,182 @@
+{
+  "_meta": {
+    "project": "גיל סיטון — מטפלת רגשית | אתר תדמית",
+    "version": "1.0.0",
+    "created": "2026-05-08",
+    "platform": "Antigravity Vibe Coding (Claude + Gemini)",
+    "git_policy": "LOCKED — Git אסור לחלוטין. לא init, לא commit, לא push, לא pull, לא branch, לא merge.",
+    "working_mode": "local_only",
+    "language": "Hebrew (he-IL) | RTL"
+  },
+
+  "agents": {
+    "lead-project-manager": {
+      "role": "Lead Project Manager",
+      "authority_level": "SUPREME",
+      "responsibilities": [
+        "תיאום בין כל הסוכנים",
+        "אכיפת מדיניות Git אסור",
+        "אישור שינויים ארכיטקטוניים",
+        "שמירה על עקביות עיצובית ומיתוגית",
+        "אכיפת SEO ו-accessibility standards",
+        "ניהול audit.md ו-architecture.md",
+        "אישור השקה (launch sign-off)",
+        "פיקוח על איכות תוכן ושפה עברית"
+      ],
+      "file_scope": ["**/*"],
+      "git_access": false,
+      "reports_to": "USER"
+    },
+
+    "architect": {
+      "role": "Site Architect",
+      "authority_level": "HIGH",
+      "responsibilities": [
+        "הגדרת מבנה דפים ותיקיות",
+        "HTML semantics ו-landmark roles",
+        "תכנון internal linking strategy",
+        "הגדרת Schema markup architecture",
+        "שמירה על היררכיית H1/H2/H3 תקינה",
+        "תכנון sitemap.xml ו-robots.txt",
+        "עדכון architecture.md"
+      ],
+      "file_scope": ["architecture.md", "*.html", "sitemap.xml", "robots.txt"],
+      "restrictions": [
+        "אסור לשנות קבצי CSS ישירות",
+        "אסור לשנות agents.config.json"
+      ],
+      "git_access": false,
+      "reports_to": "lead-project-manager"
+    },
+
+    "frontend-developer": {
+      "role": "Frontend Developer",
+      "authority_level": "HIGH",
+      "responsibilities": [
+        "ניהול design system (tokens.css, base.css, components.css)",
+        "RTL layout מלא",
+        "Mobile-first responsive design",
+        "כל קבצי CSS ו-JS",
+        "אנימציות ו-micro-interactions",
+        "ביצועים ו-lazy loading",
+        "accessibility implementation (ARIA, focus, contrast)",
+        "Dark mode toggle"
+      ],
+      "file_scope": ["assets/css/**", "assets/js/**", "design-test.html"],
+      "restrictions": [
+        "אסור לשנות תוכן טקסטואלי ב-HTML",
+        "אסור לשנות meta tags ו-SEO elements",
+        "אסור להוסיף build tools, frameworks, או CSS frameworks חיצוניים"
+      ],
+      "git_access": false,
+      "reports_to": "lead-project-manager"
+    },
+
+    "content-strategist": {
+      "role": "Content Strategist",
+      "authority_level": "MEDIUM",
+      "responsibilities": [
+        "כתיבת כל תוכן הדפים בעברית",
+        "הגדרת שפת המותג ו-tone of voice",
+        "כתיבת כותרות, תתי כותרות ופסקאות",
+        "כתיבת FAQ",
+        "כתיבת alt text בעברית",
+        "כתיבת CTA",
+        "התאמת תוכן לאסטרטגיית מילות המפתח"
+      ],
+      "file_scope": ["*.html", "assets/content/**"],
+      "restrictions": [
+        "אסור לשנות CSS, JS, או meta technical attributes",
+        "אסור לשנות Schema JSON-LD",
+        "חייב לעבוד לפי אסטרטגיית מילות המפתח ב-architecture.md"
+      ],
+      "git_access": false,
+      "reports_to": "lead-project-manager"
+    },
+
+    "seo-ai-specialist": {
+      "role": "SEO & AI Search Specialist",
+      "authority_level": "HIGH",
+      "responsibilities": [
+        "ניהול כל meta tags (title, description, canonical, OG, Twitter)",
+        "Schema markup (JSON-LD): Person, Service, LocalBusiness, FAQ",
+        "sitemap.xml ו-robots.txt",
+        "בדיקת keyword density וטבעיות",
+        "בדיקת internal linking structure",
+        "AI-readability (GPTBot, ClaudeBot, PerplexityBot)",
+        "Core Web Vitals guidance"
+      ],
+      "file_scope": ["*.html (head section)", "sitemap.xml", "robots.txt"],
+      "restrictions": [
+        "אסור לשנות תוכן גוף הדפים",
+        "אסור לשנות CSS ו-JS",
+        "אסור לבצע keyword stuffing"
+      ],
+      "git_access": false,
+      "reports_to": "lead-project-manager"
+    },
+
+    "qa-engineer": {
+      "role": "QA Engineer",
+      "authority_level": "MEDIUM",
+      "responsibilities": [
+        "בדיקת RTL ועברית בכל הדפים",
+        "Mobile responsiveness",
+        "Accessibility (WCAG 2.1 AA)",
+        "Contrast ratios",
+        "Keyboard navigation",
+        "ARIA roles ו-labels",
+        "תקינות קישורים פנימיים",
+        "Schema תקינות",
+        "Performance (lazy loading, render-blocking)",
+        "עדכון audit.md לאחר בדיקה",
+        "אישור launch readiness"
+      ],
+      "file_scope": ["audit.md", "*.html (read-only)", "assets/**"],
+      "restrictions": [
+        "אסור לשנות תוכן טקסטואלי",
+        "אסור לשנות עיצוב",
+        "כל שינוי מהותי חייב לעבור lead-project-manager"
+      ],
+      "git_access": false,
+      "reports_to": "lead-project-manager"
+    }
+  },
+
+  "global_policies": {
+    "git_policy": {
+      "status": "PERMANENTLY_LOCKED",
+      "forbidden_commands": [
+        "git init", "git status", "git add", "git commit",
+        "git push", "git pull", "git checkout", "git branch",
+        "git merge", "git rebase", "git clone", "git fetch",
+        "git log", "git diff", "git reset", "git stash"
+      ],
+      "note": "Git יוגדר בעתיד בלבד ורק בהוראה מפורשת מהמשתמש."
+    },
+    "working_mode": {
+      "type": "local_only",
+      "stack": ["HTML", "CSS", "Vanilla JavaScript"],
+      "build_tools": "none",
+      "framework": "none",
+      "dependencies": "none — static files only"
+    },
+    "language": {
+      "content": "Hebrew (he-IL)",
+      "direction": "RTL",
+      "html_attribute": "lang='he' dir='rtl'"
+    },
+    "design_system": {
+      "primary_color": "#D28769",
+      "palette": "Terracotta + Cream + Sage Taupe",
+      "fonts": { "display": "Noto Serif Hebrew", "body": "Assistant" },
+      "tokens_file": "assets/css/tokens.css"
+    },
+    "agent_collaboration": {
+      "principle": "כל סוכן עובד בתחום אחריותו בלבד",
+      "scanning_policy": "סוכן סורק רק את הקבצים שב-file_scope שלו — לא את כל הפרויקט",
+      "communication": "שינויים מתועדים ב-audit.md",
+      "escalation": "סכסוכי הרשאות עולים ל-lead-project-manager"
+    }
+  }
+}

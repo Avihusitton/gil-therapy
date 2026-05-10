@@ -1,0 +1,28 @@
+# robots.txt — גיל סיטון | gilsiton.co.il
+
+# === אנושי ===
+User-agent: *
+Allow: /
+Disallow: /assets/images/og/
+
+# === AI Search Engines — מורשים במפורש ===
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# === Sitemap ===
+Sitemap: https://gilsiton.co.il/sitemap.xml
