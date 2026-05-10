@@ -1,4 +1,4 @@
-﻿/* schema.js — JSON-LD Structured Data Injection | גיל סיטון */
+/* schema.js — JSON-LD Structured Data Injection | גיל סיטון */
 'use strict';
 
 (function injectSchema() {
@@ -39,7 +39,7 @@
     'name': 'גיל סיטון — מטפלת רגשית',
     'url': BASE_URL,
     'telephone': '+972587755445',
-    'email': 'gil@gilsiton.co.il',
+    'email': 'gilfish91@gmail.com',
     'address': {
       '@type': 'PostalAddress',
       'addressLocality': 'רתמים',

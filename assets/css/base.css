@@ -268,6 +268,27 @@ hr {
 }
 
 /* ========================
+   Utility Classes (Spacing, Layout & Colors)
+   ======================== */
+.mt-4 { margin-top: var(--space-4); }
+.mt-8 { margin-top: var(--space-8); }
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-6 { margin-bottom: var(--space-6); }
+.mb-8 { margin-bottom: var(--space-8); }
+.gap-4 { gap: var(--space-4); }
+.bg-surface { background: var(--color-surface); }
+.bg-surface-2 { background: var(--color-surface-2); }
+.text-center { text-align: center; }
+.flex-center { display: flex; justify-content: center; }
+.flex-center-wrap { display: flex; justify-content: center; flex-wrap: wrap; }
+.text-lg { font-size: var(--text-lg); }
+.text-sm { font-size: var(--text-sm); }
+.text-xs { font-size: var(--text-xs); }
+.font-regular { font-weight: 400; }
+.text-default { color: var(--color-text); }
+.text-faint { color: var(--color-text-faint); }
+
+/* ========================
    Responsive Breakpoints Reference
    (mobile-first)
    xs:  320px
