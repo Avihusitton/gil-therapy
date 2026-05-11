@@ -1,33 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://gilsitton.com/</loc>
-    <lastmod>2025-05-08</lastmod>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="he-IL" href="https://gilsitton.com/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gilsitton.com/" />
   </url>
   <url>
     <loc>https://gilsitton.com/about.html</loc>
-    <lastmod>2025-05-08</lastmod>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="he-IL" href="https://gilsitton.com/about.html" />
   </url>
   <url>
     <loc>https://gilsitton.com/children-therapy.html</loc>
-    <lastmod>2025-05-08</lastmod>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="he-IL" href="https://gilsitton.com/children-therapy.html" />
   </url>
   <url>
     <loc>https://gilsitton.com/adult-therapy.html</loc>
-    <lastmod>2025-05-08</lastmod>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="he-IL" href="https://gilsitton.com/adult-therapy.html" />
   </url>
   <url>
     <loc>https://gilsitton.com/contact.html</loc>
-    <lastmod>2025-05-08</lastmod>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="he-IL" href="https://gilsitton.com/contact.html" />
   </url>
 </urlset>
