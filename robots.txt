@@ -1,28 +1,66 @@
 # robots.txt — גיל סיטון | gilsitton.com
+# Updated 2026-05-11
 
-# === אנושי ===
+# === Human + search crawlers ===
 User-agent: *
 Allow: /
 Disallow: /assets/images/og/
+Disallow: /_scripts/
+Disallow: /.agents/
 
-# === AI Search Engines — מורשים במפורש ===
+# === AI Search Engines — explicit allow ===
+# Google AI Overviews + Gemini
+User-agent: Google-Extended
+Allow: /
+
+# OpenAI (ChatGPT search)
 User-agent: GPTBot
 Allow: /
 
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Perplexity
 User-agent: PerplexityBot
 Allow: /
 
+User-agent: Perplexity-User
+Allow: /
+
+# Anthropic (Claude)
 User-agent: ClaudeBot
 Allow: /
 
 User-agent: anthropic-ai
 Allow: /
 
-User-agent: Google-Extended
+User-agent: Claude-Web
 Allow: /
 
+# Microsoft (Bing / Copilot)
 User-agent: Bingbot
 Allow: /
 
-# === Sitemap ===
+User-agent: BingPreview
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI (Instagram / Facebook)
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Common Crawl (training-only — kept open to enable LLM training data inclusion)
+User-agent: CCBot
+Allow: /
+
+# === References ===
 Sitemap: https://gilsitton.com/sitemap.xml
