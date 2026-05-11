@@ -189,7 +189,7 @@ CSS Custom Properties — משתנים גלובליים:
   "@type": "Person",
   "name": "גיל סיטון",
   "jobTitle": "עובדת סוציאלית קלינית M.S.W",
-  "url": "https://gilsiton.co.il"
+  "url": "https://gilsitton.com"
 }
 ```
 

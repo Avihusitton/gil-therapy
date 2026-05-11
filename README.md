@@ -21,4 +21,4 @@
 ## יצירת קשר
 
 - טלפון: 058-7755445
-- אימייל: gilfish91@gmail.com
+- אימייל: therapy@gilsitton.com

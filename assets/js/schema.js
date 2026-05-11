@@ -6,24 +6,65 @@
   /* ========================
      Base entities
      ======================== */
-  var BASE_URL = 'https://gilsiton.co.il';
+  var BASE_URL = 'https://gilsitton.com';
 
   var person = {
     '@type': 'Person',
     '@id': BASE_URL + '/#person',
     'name': 'גיל סיטון',
-    'jobTitle': 'עובדת סוציאלית קלינית',
-    'hasCredential': {
-      '@type': 'EducationalOccupationalCredential',
-      'credentialCategory': 'M.S.W — מוסמכת בעבודה סוציאלית קלינית'
-    },
-    'description': 'מטפלת רגשית לילדים בשיטת מדברים ביחד ומטפלת רגשית קלאסית למבוגרים. בוגרת בית הספר למטפלים בשיטת דרך.',
-    'knowsAbout': [
-      'טיפול רגשי לילדים',
-      'שיטת מדברים ביחד',
-      'טיפול רגשי למבוגרים',
-      'עבודה סוציאלית קלינית'
+    "sameAs": [
+      "https://www.medabrimyahad.org",
+      "https://www.dherech.com",
+      "https://gilsitton.com"
     ],
+    'jobTitle': 'עובדת סוציאלית קלינית',
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "M.S.W — עובדת סוציאלית קלינית",
+        "credentialCategory": "degree",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "אוניברסיטת בן גוריון בנגב"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "APT — Authentic Path Therapy",
+        "credentialCategory": "certification",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "בית הספר למטפלים בשיטת דרך"
+        }
+      }
+    ],
+    'description': 'מטפלת רגשית לילדים בשיטת מדברים ביחד ומטפלת רגשית קלאסית למבוגרים. בוגרת בית הספר למטפלים בשיטת דרך.',
+    "knowsAbout": [
+      "טיפול רגשי לילדים",
+      "טיפול רגשי למבוגרים",
+      "פגיעות מיניות",
+      "אלימות במשפחה",
+      "שיטת מדברים ביחד",
+      "Authentic Path Therapy"
+    ],
+    "alumniOf": [
+      {
+        "@type": "EducationalOrganization",
+        "name": "מכללת ספיר",
+        "description": "תואר ראשון בעבודה סוציאלית"
+      },
+      {
+        "@type": "EducationalOrganization", 
+        "name": "אוניברסיטת בן גוריון בנגב",
+        "description": "תואר שני קליני M.S.W"
+      },
+      {
+        "@type": "EducationalOrganization",
+        "name": "בית הספר למטפלים בשיטת דרך",
+        "description": "הסמכת APT — Authentic Path Therapy, 3 שנים"
+      }
+    ],
+    "yearsOfExperience": "8",
     'availableLanguage': { '@type': 'Language', 'name': 'Hebrew' },
     'areaServed': [
       { '@type': 'Place', 'name': 'רתמים' },
@@ -39,7 +80,7 @@
     'name': 'גיל סיטון — מטפלת רגשית',
     'url': BASE_URL,
     'telephone': '+972587755445',
-    'email': 'gilfish91@gmail.com',
+    'email': 'therapy@gilsitton.com',
     'address': {
       '@type': 'PostalAddress',
       'addressLocality': 'רתמים',
@@ -158,3 +199,46 @@
 
 })();
 
+(function() {
+  const path = window.location.pathname;
+  
+  const breadcrumbs = {
+    '/about.html': [
+      { name: 'בית', url: 'https://gilsitton.com/' },
+      { name: 'אודות', url: 'https://gilsitton.com/about.html' }
+    ],
+    '/children-therapy.html': [
+      { name: 'בית', url: 'https://gilsitton.com/' },
+      { name: 'טיפול בילדים', url: 'https://gilsitton.com/children-therapy.html' }
+    ],
+    '/adult-therapy.html': [
+      { name: 'בית', url: 'https://gilsitton.com/' },
+      { name: 'טיפול במבוגרים', url: 'https://gilsitton.com/adult-therapy.html' }
+    ],
+    '/contact.html': [
+      { name: 'בית', url: 'https://gilsitton.com/' },
+      { name: 'יצירת קשר', url: 'https://gilsitton.com/contact.html' }
+    ]
+  };
+
+  const items = breadcrumbs[path];
+  if (!items) return;
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": items.map(function(item, i) {
+      return {
+        "@type": "ListItem",
+        "position": i + 1,
+        "name": item.name,
+        "item": item.url
+      };
+    })
+  };
+
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.textContent = JSON.stringify(schema);
+  document.head.appendChild(script);
+})();

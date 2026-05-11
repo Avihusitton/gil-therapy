@@ -1,4 +1,4 @@
-# robots.txt — גיל סיטון | gilsiton.co.il
+# robots.txt — גיל סיטון | gilsitton.com
 
 # === אנושי ===
 User-agent: *
@@ -25,4 +25,4 @@ User-agent: Bingbot
 Allow: /
 
 # === Sitemap ===
-Sitemap: https://gilsiton.co.il/sitemap.xml
+Sitemap: https://gilsitton.com/sitemap.xml
