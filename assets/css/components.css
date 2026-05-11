@@ -474,9 +474,12 @@
   max-width: 60ch;
 }
 
-.section-header { margin-bottom: 3rem; }
-.section-header--center { text-align: center; }
-.section-header--center .section-subtitle { margin-inline: auto; }
+.section-header {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+.section-header .section-subtitle { margin-inline: auto; }
+.section-header--center { text-align: center; } /* legacy alias */
 
 .section-title { margin-bottom: 1.5rem; }
 .section-subtitle { margin-top: 1rem; }
@@ -517,7 +520,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  color: var(--color-primary);
+}
+.service-card__icon svg {
+  width: 30px;
+  height: 30px;
 }
 
 .service-card__title {
@@ -816,8 +823,18 @@
 }
 
 .value-icon {
-  font-size: 2.5rem;
+  width: 40px;
+  height: 40px;
+  margin-inline: auto;
   margin-bottom: var(--space-4);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.value-icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .value-title {
@@ -898,9 +915,18 @@
 }
 
 .info-item__icon {
-  font-size: 1.4rem;
+  width: 26px;
+  height: 26px;
   flex-shrink: 0;
   margin-top: 2px;
+  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.info-item__icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .info-item__text { font-size: var(--text-base); color: var(--color-text); }
@@ -935,16 +961,19 @@
 }
 
 .service-showcase-card__icon {
-  font-size: 1.8rem;
   flex-shrink: 0;
-  width: 48px;
-  height: 48px;
-  background-color: transparent;
-  border-radius: 0;
+  width: 56px;
+  height: 56px;
+  background-color: var(--color-surface-2);
+  border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-text-muted);
+  color: var(--color-primary);
+}
+.service-showcase-card__icon svg {
+  width: 28px;
+  height: 28px;
 }
 
 .service-showcase-card__body {
@@ -1007,7 +1036,17 @@
 }
 
 .location-item__icon {
-  font-size: 1.4rem;
+  width: 24px;
+  height: 24px;
+  color: var(--color-primary);
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.location-item__icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .location-item strong {
@@ -1166,6 +1205,7 @@
   background: var(--color-bg);
   border-top: 1px solid var(--color-divider);
   padding: 0.75rem 1rem;
+  padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
   gap: 0.75rem;
   box-shadow: 0 -4px 20px rgba(45, 35, 32, 0.08);
 }
@@ -1176,7 +1216,7 @@
   }
 
   body {
-    padding-bottom: 80px;
+    padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
   }
 }
 
@@ -1236,7 +1276,7 @@
   }
 }
 
-/* === WhatsApp Floating Button === */
+/* === WhatsApp Floating Button (desktop only) === */
 .whatsapp-float {
   position: fixed;
   bottom: 28px;
@@ -1249,20 +1289,338 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.30);
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  animation: wa-pulse 2.5s infinite;
 }
 .whatsapp-float:hover {
-  transform: scale(1.08);
-  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.5);
-}
-@keyframes wa-pulse {
-  0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
-  70%  { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+  transform: scale(1.06);
+  box-shadow: 0 6px 22px rgba(37, 211, 102, 0.40);
 }
 @media (max-width: 768px) {
   .whatsapp-float { display: none; }
+}
+
+/* ========================
+   Trust Strip (credentials row under hero)
+   ======================== */
+.trust-strip {
+  background-color: var(--color-surface-offset);
+  border-block: 1px solid var(--color-divider);
+  padding-block: var(--space-5);
+}
+
+.trust-strip__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.trust-strip__item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-inline: var(--space-5);
+  text-align: center;
+  position: relative;
+}
+
+.trust-strip__item + .trust-strip__item::before {
+  content: "";
+  position: absolute;
+  inset-inline-end: 0;
+  top: 12%;
+  bottom: 12%;
+  width: 1px;
+  background-color: var(--color-divider);
+}
+
+.trust-strip__item strong {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: 0.01em;
+  line-height: 1.35;
+}
+
+.trust-strip__item span {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 640px) {
+  .trust-strip {
+    padding-block: var(--space-4);
+  }
+  .trust-strip__list {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .trust-strip__item {
+    padding-block: var(--space-3);
+    padding-inline: 0;
+  }
+  .trust-strip__item + .trust-strip__item {
+    border-block-start: 1px solid var(--color-divider);
+  }
+  .trust-strip__item + .trust-strip__item::before {
+    display: none;
+  }
+}
+
+/* ========================
+   Generic Icon Wrapper
+   ======================== */
+.icon {
+  display: inline-flex;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: var(--color-primary);
+  align-items: center;
+  justify-content: center;
+}
+.icon svg {
+  width: 100%;
+  height: 100%;
+}
+.icon--sm { width: 16px; height: 16px; }
+.icon--lg { width: 32px; height: 32px; }
+
+/* ========================
+   Process Number Circle (replaces 1️⃣ 2️⃣ ...)
+   ======================== */
+.process-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-base);
+  line-height: 1;
+  flex-shrink: 0;
+  letter-spacing: 0;
+}
+
+/* ========================
+   Signs List ("5 signs" — children-therapy)
+   ======================== */
+.signs-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 720px;
+  margin-inline: auto;
+  list-style: none;
+  padding: 0;
+}
+
+.signs-list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-5);
+  padding: var(--space-5) var(--space-6);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  text-align: start;
+}
+
+.signs-list__num {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-primary);
+  min-width: 1.5em;
+  flex-shrink: 0;
+  line-height: 1.3;
+}
+
+.signs-list__text {
+  font-size: var(--text-base);
+  color: var(--color-text);
+  line-height: var(--leading-snug);
+  padding-top: 2px;
+  margin: 0;
+}
+
+/* ========================
+   FAQ Plus/Minus Toggle (replaces chevron)
+   ======================== */
+.faq-icon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.faq-icon::before,
+.faq-icon::after {
+  content: "";
+  position: absolute;
+  background-color: var(--color-primary);
+  border-radius: 2px;
+  transition: transform var(--transition-interactive);
+}
+
+/* horizontal bar — always visible */
+.faq-icon::before {
+  top: 50%;
+  inset-inline: 0;
+  height: 2px;
+  transform: translateY(-50%);
+}
+
+/* vertical bar — collapses when open */
+.faq-icon::after {
+  inset-inline-start: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  transform: translateX(-50%);
+}
+
+.faq-item.is-open .faq-icon::after {
+  transform: translateX(-50%) scaleY(0);
+}
+
+/* ========================
+   Method Pillars (replaces medabrim quote bubbles)
+   ======================== */
+.method-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-4);
+}
+
+.method-pillar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+}
+
+.method-pillar__icon {
+  width: 32px;
+  height: 32px;
+  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.method-pillar__icon svg { width: 100%; height: 100%; }
+
+.method-pillar__title {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.method-pillar__desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: var(--leading-snug);
+}
+
+@media (max-width: 768px) {
+  .method-pillars {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+}
+
+.method-pillars--two {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 760px;
+  margin-inline: auto;
+}
+@media (max-width: 768px) {
+  .method-pillars--two {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========================
+   Specialty List (about page)
+   ======================== */
+.spec-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  max-width: 760px;
+  margin-inline: auto;
+  list-style: none;
+  padding: 0;
+}
+
+.spec-list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  line-height: var(--leading-snug);
+}
+
+.spec-list__item::before {
+  content: "";
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  margin-top: 0.7em;
+}
+
+@media (max-width: 640px) {
+  .spec-list { grid-template-columns: 1fr; }
+}
+
+/* ========================
+   Trust Strip — add small SVG before title
+   ======================== */
+.trust-strip__icon {
+  width: 22px;
+  height: 22px;
+  color: var(--color-primary);
+  margin-inline: auto;
+  margin-bottom: var(--space-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.trust-strip__icon svg { width: 100%; height: 100%; }
+
+/* ========================
+   Mobile Sticky CTA — single button override
+   ======================== */
+.mobile-sticky-cta--single {
+  display: none;
+}
+@media (max-width: 768px) {
+  .mobile-sticky-cta--single {
+    display: flex;
+    justify-content: center;
+  }
+  .mobile-sticky-cta--single .mobile-sticky-cta__btn {
+    flex: 0 1 auto;
+    min-width: min(420px, 92%);
+  }
 }
