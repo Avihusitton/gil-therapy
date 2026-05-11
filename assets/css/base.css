@@ -3,10 +3,9 @@
    גיל סיטון — מטפלת רגשית
    ============================================================= */
 
-/* ========================
-   Google Fonts Import
-   ======================== */
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&family=Assistant:wght@300;400;500;600&display=swap&subset=hebrew');
+/* Fonts are loaded via <link rel="stylesheet"> in every page's <head>.
+   Do not @import here — @import inside CSS is render-blocking and
+   serialized after the stylesheet itself downloads. */
 
 /* ========================
    Reset & Box Model
@@ -253,18 +252,15 @@ hr {
 }
 
 /* ========================
-   Animate on Scroll
+   Animate on Scroll — single subtle fade per section
    ======================== */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity var(--transition-slow),
-              transform var(--transition-slow);
+  transition: opacity 600ms ease-out;
 }
 
 .reveal.is-visible {
   opacity: 1;
-  transform: translateY(0);
 }
 
 /* ========================
@@ -287,6 +283,28 @@ hr {
 .font-regular { font-weight: 400; }
 .text-default { color: var(--color-text); }
 .text-faint { color: var(--color-text-faint); }
+
+/* ========================
+   Reduced Motion
+   ======================== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .whatsapp-float {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
 
 /* ========================
    Responsive Breakpoints Reference
