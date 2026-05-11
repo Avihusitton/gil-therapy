@@ -23,6 +23,7 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   tab-size: 4;
+  overflow-x: hidden;
 }
 
 body {
@@ -37,6 +38,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   transition: background-color var(--transition-interactive),
               color var(--transition-interactive);
+  overflow-x: hidden;
 }
 
 /* ========================
