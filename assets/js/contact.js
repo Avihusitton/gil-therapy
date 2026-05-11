@@ -15,8 +15,8 @@ const SHEET_ENDPOINT = 'PASTE_YOUR_APPS_SCRIPT_URL_HERE';
 const MAILTO_TO = 'therapy@gilsitton.com';
 
 const SUBJECT_LABELS = {
-  'children': 'טיפול בילדים',
-  'adults':   'טיפול במבוגרים',
+  'children': 'טיפול דיאדי ורגשי לילדים',
+  'adults':   'טיפול רגשי למבוגרים',
   'zoom':     'טיפול בזום',
   'other':    'אחר'
 };
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!validate(form, payload)) return;
 
     const submitBtn = form.querySelector('[type="submit"]');
-    const originalText = submitBtn?.textContent || 'שלחי הודעה';
+    const originalText = submitBtn?.textContent || 'לתיאום פגישה ראשונה';
     if (submitBtn) {
       submitBtn.disabled = true;
       submitBtn.textContent = 'שולח...';

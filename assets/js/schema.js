@@ -86,9 +86,9 @@
   var business = {
     '@type': ['MedicalBusiness', 'LocalBusiness'],
     '@id': BASE_URL + '/#business',
-    'name': 'גיל סיטון — מטפלת רגשית',
+    'name': 'גיל סיטון — עו"ס קלינית ומטפלת רגשית',
     'alternateName': ['גיל סיטון עו"ס קלינית', 'הקליניקה של גיל סיטון'],
-    'description': 'קליניקה לטיפול רגשי לילדים ולמבוגרים — בשיטות APT ומדברים ביחד. בכפר רתמים ובזום לכל הארץ.',
+    'description': 'קליניקה לטיפול דיאדי בילדים, הדרכת הורים, וטיפול רגשי למבוגרים בשיטות משחק, סיפור ו-APT. בכפר רתמים ובזום לכל הארץ.',
     'url': BASE_URL,
     'image': BASE_URL + '/assets/images/og/home.jpg',
     'logo': BASE_URL + '/assets/images/logo.svg',
@@ -117,7 +117,7 @@
       { '@type': 'ServiceChannel', 'serviceLocation': { '@type': 'VirtualLocation', 'name': 'זום' } }
     ],
     'paymentAccepted': ['Cash', 'Credit Card', 'Bit', 'Bank Transfer'],
-    'keywords': 'טיפול רגשי לילדים, טיפול רגשי למבוגרים, מטפלת רגשית, עו״ס קלינית, מדברים ביחד, APT, כפר רתמים, רתמים, זום, טראומה, הדרכת הורים',
+    'keywords': 'טיפול דיאדי בילדים, טיפול רגשי לילדים, הדרכת הורים, טיפול רגשי למבוגרים, מטפלת רגשית, עו״ס קלינית, מדברים ביחד, APT, כפר רתמים, רתמים, זום',
     'founder': { '@id': BASE_URL + '/#person' },
     'employee': { '@id': BASE_URL + '/#person' },
     'sameAs': ['https://gilsitton.com']
@@ -129,9 +129,9 @@
   var serviceChildren = {
     '@type': 'Service',
     '@id': BASE_URL + '/children-therapy.html#service',
-    'name': 'טיפול רגשי לילדים בשיטת "מדברים ביחד"',
-    'description': 'טיפול רגשי לילדים מגיל 4 בשיטת "מדברים ביחד" — המשתמשת בשפת המשחק, הסיפור והדמיון. ההורים שותפים מלאים בתהליך הטיפולי.',
-    'serviceType': 'טיפול רגשי לילדים',
+    'name': 'טיפול דיאדי בילדים וטיפול רגשי בשיטת "מדברים ביחד"',
+    'description': 'טיפול דיאדי בילדים וטיפול רגשי לילדים מגיל 4 בשיטת "מדברים ביחד" — המשתמשת בשפת המשחק, הסיפור והדמיון. ההורים שותפים מלאים בתהליך הטיפולי, תוך מתן הדרכת הורים צמודה.',
+    'serviceType': 'טיפול דיאדי בילדים',
     'category': 'Mental Health',
     'provider': { '@id': BASE_URL + '/#person' },
     'audience': { '@type': 'PeopleAudience', 'audienceType': 'הורים לילדים מגיל 4 ועד גיל ההתבגרות', 'suggestedMinAge': 4 },
